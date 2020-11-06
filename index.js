@@ -11,26 +11,35 @@ client.once('ready', () => {
 client.login(secrets.BOT_TOKEN);
 
 client.on('message', (message) => {
-  if (message.content === `${prefix}help`) {
-    const embed = new Discord.MessageEmbed()
-      .setTitle('Bot Commands list:')
-      .setColor(0x43bcfe)
-      .setFooter(`The bot prefix for this server is ${prefix}`).setDescription(`.ping
+  if (message.content === 'help') {
+    message.channel.send(`The bot prefix for this server is ${prefix}\nType \`${prefix}help\``);
+  } else if (message.content === 'ping') {
+    message.channel.send('Talk with me in dots');
+  }
+
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+
+  if (command === 'help') {
+    const embed = new Discord.MessageEmbed().setTitle('Bot Commands list:').setColor(0x43bcfe).setDescription(`.ping
 ping
 .server
 .moreinfo
 .userinfo
-.quoteme`);
+.quoteme
+.argsinfo`);
     message.channel.send(embed);
-  } else if (message.content === `${prefix}ping`) {
+  } else if (command === 'ping') {
     message.channel.send('Pong');
   } else if (message.content === 'ping') {
     message.channel.send('Talk with me in dots');
-  } else if (message.content === `${prefix}server`) {
+  } else if (command === 'server') {
     message.channel.send(
       `Server details:\nName : ${message.guild.name}\nType \`${prefix}moreinfo\` for more information`,
     );
-  } else if (message.content === `${prefix}moreinfo`) {
+  } else if (command === 'moreinfo') {
     message.channel.send(`Server details:
 Name : ${message.guild.name}
 Name Acronym: ${message.guild.nameAcronym}
@@ -38,9 +47,9 @@ Total Members: ${message.guild.memberCount}
 Created At: ${message.guild.createdAt}
 Region: ${message.guild.region}
 `);
-  } else if (message.content === `${prefix}userinfo`) {
+  } else if (command === 'userinfo') {
     message.channel.send(`Your Username: ${message.author.username}\nYour ID: ${message.author.id}`);
-  } else if (message.content.startsWith(`${prefix}quoteme `)) {
+  } else if (command === 'quoteme') {
     message.channel.send(`\`${message.content.substring(9)}\``);
   }
 });
