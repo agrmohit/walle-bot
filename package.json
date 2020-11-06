@@ -1,0 +1,25 @@
+{
+  "name": "walle-bot",
+  "version": "0.1.0",
+  "description": "My first attempt at creating a discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgrMohit/walle-bot.git"
+  },
+  "author": "Mohit Raj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AgrMohit/walle-bot/issues"
+  },
+  "homepage": "https://github.com/AgrMohit/walle-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.4.1",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "prettier": "^2.1.2"
+  }
+}
