@@ -51,5 +51,13 @@ Region: ${message.guild.region}
     message.channel.send(`Your Username: ${message.author.username}\nYour ID: ${message.author.id}`);
   } else if (command === 'quoteme') {
     message.channel.send(`\`${message.content.substring(9)}\``);
+  } else if (command === 'argsinfo') {
+    if (!args.length) {
+      return message.channel.send("You didn't provide any arguments");
+    }
+    message.channel.send(`Command name: ${command}
+Arguments: ${args}
+Argument array length: ${args.length}
+First Argument: ${args[0]}`);
   }
 });
