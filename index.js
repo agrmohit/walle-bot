@@ -12,13 +12,16 @@ client.login(secrets.BOT_TOKEN);
 
 client.on('message', (message) => {
   if (message.content === `${prefix}help`) {
-    message.channel.send(`Bot Command List:
-.ping
+    const embed = new Discord.MessageEmbed()
+      .setTitle('Bot Commands list:')
+      .setColor(0x43bcfe)
+      .setFooter(`The bot prefix for this server is ${prefix}`).setDescription(`.ping
 ping
 .server
 .moreinfo
 .userinfo
 .quoteme`);
+    message.channel.send(embed);
   } else if (message.content === `${prefix}ping`) {
     message.channel.send('Pong');
   } else if (message.content === 'ping') {
@@ -37,7 +40,7 @@ Region: ${message.guild.region}
 `);
   } else if (message.content === `${prefix}userinfo`) {
     message.channel.send(`Your Username: ${message.author.username}\nYour ID: ${message.author.id}`);
-  } else if (message.content.startsWith(`${prefix}quoteme`)) {
+  } else if (message.content.startsWith(`${prefix}quoteme `)) {
     message.channel.send(`\`${message.content.substring(9)}\``);
   }
 });
