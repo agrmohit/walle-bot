@@ -13,8 +13,6 @@ client.login(secrets.BOT_TOKEN);
 client.on('message', (message) => {
   if (message.content === 'help') {
     message.channel.send(`The bot prefix for this server is ${prefix}\nType \`${prefix}help\``);
-  } else if (message.content === 'ping') {
-    message.channel.send('Talk with me in dots');
   }
 
   if (!message.content.startsWith(prefix) || message.author.bot) return;

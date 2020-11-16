@@ -1,6 +1,6 @@
 {
   "name": "walle-bot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "My first attempt at creating a discord bot",
   "main": "index.js",
   "scripts": {
