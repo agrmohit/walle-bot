@@ -1,10 +1,10 @@
 {
   "name": "walle-bot",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "My first attempt at creating a discord bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/AgrMohit/walle-bot#readme",
   "dependencies": {
-    "discord.js": "^12.4.1"
+    "discord.js": "^12.4.1",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "eslint": "^7.13.0",

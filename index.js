@@ -1,14 +1,15 @@
 const Discord = require('discord.js');
-const secrets = require('./secrets.json');
-const { prefix } = require('./config.json');
 
 const client = new Discord.Client();
+require('dotenv').config();
 
 client.once('ready', () => {
   console.log('Ready!');
 });
 
-client.login(secrets.BOT_TOKEN);
+client.login(process.env.DISCORD_TOKEN);
+
+const prefix = process.env.BOT_PREFIX;
 
 client.on('message', (message) => {
   if (message.content === 'help') {
