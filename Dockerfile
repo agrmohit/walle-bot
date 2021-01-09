@@ -2,7 +2,7 @@
 FROM alpine AS base
 RUN apk add --no-cache nodejs
 WORKDIR /app
-COPY ["package.json", "package-lock.json", "./"]
+COPY . .
 
 # 
 # ----DEPENDENCIES----
@@ -14,5 +14,4 @@ RUN npm install --production
 # ----RELEASE----
 FROM base AS release
 COPY --from=dependencies /app/node_modules ./node_modules
-COPY . .
 CMD [ "node", "index.js" ]
