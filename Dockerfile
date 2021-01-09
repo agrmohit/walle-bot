@@ -1,13 +1,13 @@
 # ----BASE----
 FROM alpine AS base
-RUN apk add nodejs
+RUN apk add --no-cache nodejs
 WORKDIR /app
 COPY ["package.json", "package-lock.json", "./"]
 
 # 
 # ----DEPENDENCIES----
 FROM base AS dependencies
-RUN apk add npm
+RUN apk add --no-cache npm
 RUN npm install --production
 
 # 

@@ -3,4 +3,4 @@
 .gitignore
 .prettierrc.json
 .eslintrc.json
-secrets-example.json
+.env.example
